@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100">
+    {{ .Navbar }}
+
+    <div class="vh-100">
+        <img src="https://web-smkn4.vercel.app/_nuxt/pembuka.C-Cl3k6R.jpg" 
+            class=" object-fit-cover" 
+            alt="Gambar Fullscreen">
+    </div>
+
+    <div class="container mx-auto p-6">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Fasilitas</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
+                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
+                </div>
+                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
+                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
+                </div>
+                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
+                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center my-5">Jurusan</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {{ range .Jurusan }}
+            <div class="grid grid-cols-3 bg-white  rounded-2xl border-1 border-gray-100 shadow-md overflow-hidden shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+                <div class="flex justify-center items-center my-5">
+                    <img src="{{ .Foto }}" alt="{{ .NamaJ }}" class="w-20 h-20">
+                </div>
+                <div class="p-4 {{ .Warna }} h-full text-white col-span-2">
+                    <div class="my-5">
+                        <h2 class="text-xl font-semibold">{{ .NamaJ }}</h2>
+                        <p class="text-sm">{{ .Desk }}</p>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+        </div>
+    </div>
+
+</body>
+</html>

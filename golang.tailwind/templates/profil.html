@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+        {{ .Navbar }}
+
+    <div class="container mx-auto mt-20 p-6 space-y-8">
+
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Profil Sekolah</h1>
+
+        <!-- Sejarah -->
+        <div class="bg-white shadow-lg rounded-2xl p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2">Sejarah</h2>
+        <div class="grid my-5 grid-cols-1 md:grid-cols-3">
+            <img src="https://smkn4-web.netlify.app/_nuxt/Logo-SMK.Ba-Cc_BE.png" alt="Foto Sekolah"
+            class="my-auto w-[70%] mx-auto">
+            <p class="mt-4 text-gray-600  text-justify col-span-2 ">
+            {{ .Profil.Sejarah }}
+        </p>
+        </div>
+        </div>
+
+
+        <!-- Visi -->
+        <section class="bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2">Visi</h2>
+        <p class="mt-4 text-gray-600 leading-relaxed">{{ .Profil.Visi }}</p>
+        </section>
+
+        <!-- Misi -->
+        <section class="bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2">Misi</h2>
+        <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600 leading-relaxed">
+            {{ range .Profil.Misi }}
+            <li>{{ . }}</li>
+            {{ end }}
+        </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>
