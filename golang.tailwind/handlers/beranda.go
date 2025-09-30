@@ -31,12 +31,18 @@ func Beranda(w http.ResponseWriter, r *http.Request) {
 		Title         string
 		Jurusan       []models.DataJurusan
 		JumlahJurusan int
+		JumlahEskul   int
+		JumlahSiswa   int
 		Navbar        template.HTML
+		Footer        template.HTML
 	}{
 		Title:         "Beranda",
 		Jurusan:       jurusanWithColors,
 		JumlahJurusan: len(jurusanWithColors),
+		JumlahEskul:   len(models.IsiEskul),
+		JumlahSiswa:   len(models.IsiSiswa),
 		Navbar:        template.HTML(utils.GetNavbar()), // Navbar dipanggil dari utils
+		Footer:        template.HTML(utils.GetFooter()), // Navbar dipanggil dari utils
 	}
 
 	// Render halaman dengan template

@@ -13,10 +13,12 @@ func ProfilHandler(w http.ResponseWriter, r *http.Request) {
 	page := struct {
 		Title  string
 		Navbar template.HTML
+		Footer template.HTML
 		Profil models.DataProfil
 	}{
 		Title:  "Profil Sekolah",
 		Navbar: template.HTML(utils.GetNavbar()),
+		Footer:        template.HTML(utils.GetFooter()),
 		Profil: models.IsiProfil, // ambil dari models/profil.go
 	}
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ .Title }}</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-100">
@@ -17,30 +17,47 @@
 
     <div class="container mx-auto p-6">
         <div class="text-center">
-            <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Fasilitas</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
-                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl bg-white shadow-lg my-10 overflow-hidden">
+                <div>
+                    <img class="w-full h-full object-cover" src="https://aqinbfwyqxlynlxybhod.supabase.co/storage/v1/object/public/img_galeri/jalan_sehat.JPG" alt="Foto Sekolah">
                 </div>
-                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
-                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
-                </div>
-                <div class="py-10 rounded-2xl bg-white shadow-md border-1 border-gray-100">
-                    <p class="font-bold text-2xl">Jumlah jurusan: {{ .JumlahJurusan }}</p>
+
+                <div class="my-auto px-10 py-8 text-start">
+                    <h1 class="font-bold text-3xl lg:text-4xl mb-4">SMK Negeri 4 Tasikmalaya</h1>
+                    <p class="text-gray-700">
+                        SMK Negeri 4 Tasikmalaya menghasilkan tamatan yang Cerdas, Akhlak mulia, Kreatif, Aktif, Produktif, 
+                        dengan berlandaskan Iman dan Taqwa (CAKAP BERIMTAQ).
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-6 mt-12 text-center">
+                        <div>
+                            <h2 class="font-bold text-4xl mb-2">{{ .JumlahSiswa }} +</h2>
+                            <p class="text-gray-600 text-sm">Siswa Aktiv</p>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-4xl mb-2">{{ .JumlahEskul }}</h2>
+                            <p class="text-gray-600 text-sm">Ekstrakurikuler</p>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-4xl mb-2">{{ .JumlahJurusan }}</h2>
+                            <p class="text-gray-600 text-sm">Program Keahlian</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-6 text-center my-5">Jurusan</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <h1 class="text-4xl mx-10 mb-6 mt-20">Kompetensi Keahlian</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {{ range .Jurusan }}
-            <div class="grid grid-cols-3 bg-white  rounded-2xl border-1 border-gray-100 shadow-md overflow-hidden shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
-                <div class="flex justify-center items-center my-5">
+            <div class="grid grid-cols-3 bg-white  rounded-2xl shadow-md overflow-hidden shadow-lg overflow-hidden hover:scale-105 transform transition duration-300">
+                <div class="flex justify-center items-center my-20">
                     <img src="{{ .Foto }}" alt="{{ .NamaJ }}" class="w-20 h-20">
                 </div>
                 <div class="p-4 {{ .Warna }} h-full text-white col-span-2">
-                    <div class="my-5">
+                    <div class="my-20">
                         <h2 class="text-xl font-semibold">{{ .NamaJ }}</h2>
                         <p class="text-sm">{{ .Desk }}</p>
                     </div>
@@ -49,6 +66,8 @@
         {{ end }}
         </div>
     </div>
+
+    {{ .Footer }}
 
 </body>
 </html>

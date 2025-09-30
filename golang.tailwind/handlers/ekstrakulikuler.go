@@ -12,10 +12,12 @@ func EkstrakulikulerHandler(w http.ResponseWriter, r *http.Request) {
 	page := struct {
 		Title          string
 		Navbar         template.HTML
+		Footer         template.HTML
 		Ekstrakulikuler []models.DataEskul
 	}{
 		Title:          "Ekstrakulikuler",
 		Navbar:         template.HTML(utils.GetNavbar()),
+		Footer:        template.HTML(utils.GetFooter()),
 		Ekstrakulikuler: models.IsiEskul, // ini slice []DataEskul
 	}
 
